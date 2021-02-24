@@ -83,13 +83,13 @@ public class SpoonMove : MonoBehaviour
             moveRight();
         }
 
-
+        
 
         //check current location of egg
         Vector3 currentPosition = transform.position;
 
         //Allow reset height (back on spoon) if egg falls off spoon
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             transform.localPosition = new Vector3(62.1f, 108.85f, 110.35f);
             print("Space Hit");
