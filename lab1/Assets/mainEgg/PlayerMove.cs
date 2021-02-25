@@ -25,15 +25,15 @@ public class PlayerMove : MonoBehaviour
         //check current location of egg
         Vector3 currentPosition = transform.position;
 
-        if (transform.position.z > 200 && transform.position.z < 400)
+        if (transform.position.z > 200 && transform.position.z < 300)
         {
             checkpoint = 1;
         }
-        else if (transform.position.z > 400 && transform.position.z < 600)
+        else if (transform.position.z > 300 && transform.position.z < 400)
         {
             checkpoint = 2;
         }
-        else if (transform.position.z > 600)
+        else if (transform.position.z > 400)
         {
             checkpoint = 3;
         }
@@ -47,14 +47,14 @@ public class PlayerMove : MonoBehaviour
         {
             if (checkpoint == 1)
             {
-                transform.localPosition = new Vector3(120,-600,200);
+                transform.localPosition = new Vector3(120,-700,200);
                 print("Space Hit CH1");
                 //reset forces acting on egg
                 GetComponent<Rigidbody>().velocity = Vector3.zero;
                 Debug.Log("ORIGIN");
                 textbox.text = "CHECKPOINT 1";
             } else if (checkpoint == 2) {
-                transform.localPosition = new Vector3(120, -3000, 200);
+                transform.localPosition = new Vector3(120, -1800, 200);
                 print("Space Hit CH2");
                 //reset forces acting on egg
                 GetComponent<Rigidbody>().velocity = Vector3.zero;
@@ -62,12 +62,12 @@ public class PlayerMove : MonoBehaviour
                 textbox.text = "CHECKPOINT 2";
             } else if (checkpoint == 3)
             {
-                transform.localPosition = new Vector3(120, -4400, 200);
+                transform.localPosition = new Vector3(120, -2900, 200);
                 print("Space Hit CH3");
                 //reset forces acting on egg
                 GetComponent<Rigidbody>().velocity = Vector3.zero;
                 Debug.Log("CHECKPOINT 3");
-                textbox.text = "RESET";
+                textbox.text = "CHECKPOINT 3";
             }
             else
             {
@@ -89,8 +89,21 @@ public class PlayerMove : MonoBehaviour
             textbox.text = "";
         }
 
-        if (transform.position.z > 200 && transform.position.z < 300) {
-            textbox.text = "Keep Going";
+        if (transform.position.z > 200 && transform.position.z < 300)
+        {
+            textbox.text = "CHECKPOINT 1 - Keep Going!";
+        }
+        else if (transform.position.z > 300 && transform.position.z < 400)
+        {
+            textbox.text = "CHECKPOINT 2 - You can do it!";
+        }
+        else if (transform.position.z > 400 && transform.position.z < 510)
+        {
+            textbox.text = "CHECKPOINT 3 - YOUR ALMOST THERE!";
+        }
+        else if (transform.position.z > 510) {
+            textbox.text = "FINISHED!";
+
         }
 
         Debug.Log(currentPosition);
